@@ -1,0 +1,388 @@
+% Created 2012-02-03 Fri 14:33
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{soul}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\tolerance=1000
+\providecommand{\alert}[1]{\textbf{#1}}
+
+\title{rspec}
+\author{Ryan Durling}
+\date{\today}
+\hypersetup{
+  pdfkeywords={},
+  pdfsubject={},
+  pdfcreator={Emacs Org-mode version 7.8.03}}
+
+\begin{document}
+
+\maketitle
+
+\setcounter{tocdepth}{3}
+\tableofcontents
+\vspace*{1cm}
+\section{String}
+\label{sec-1}
+\subsection{\#is$_i$}
+\label{sec-1-1}
+\subsubsection{\textbf{SUCCESS} Check to see if string is an Integer}
+\label{sec-1-1-1}
+\subsection{\#is$_s$?}
+\label{sec-1-2}
+\subsubsection{\textbf{SUCCESS} Check to see if string is string}
+\label{sec-1-2-1}
+\section{Fixnum}
+\label{sec-2}
+\subsection{\#is$_i$?}
+\label{sec-2-1}
+\subsubsection{\textbf{SUCCESS} Check to see if integer is integer}
+\label{sec-2-1-1}
+\section{Array}
+\label{sec-3}
+\subsection{\#s$_{\mathrm{to}}$$_i$}
+\label{sec-3-1}
+\subsubsection{\textbf{SUCCESS} Change the contents of the array with integers and/or strings}
+\label{sec-3-1-1}
+
+        and converts the integers to integers
+\subsection{\#add$_{\mathrm{value}}$}
+\label{sec-3-2}
+\subsubsection{\textbf{SUCCESS} ``Add value at index `num' by `some other num'}
+\label{sec-3-2-1}
+\subsection{\#subtract$_{\mathrm{value}}$}
+\label{sec-3-3}
+\subsubsection{\textbf{SUCCESS} ``Subtract value at index `num' by `some other num'}
+\label{sec-3-3-1}
+\subsection{\#shift$_{\mathrm{right}}$}
+\label{sec-3-4}
+\subsubsection{\textbf{SUCCESS} Move elements of the array to the right}
+\label{sec-3-4-1}
+
+        by removing the last element and
+        putting it at the beginning
+\subsection{\#shift$_{\mathrm{left}}$}
+\label{sec-3-5}
+\subsubsection{\textbf{SUCCESS} Move elements of the array to the left}
+\label{sec-3-5-1}
+
+        by removing the first element and
+        putting it at the end
+\section{Command$_{\mathrm{File}}$}
+\label{sec-4}
+\subsection{\#new}
+\label{sec-4-1}
+\subsubsection{\textbf{SUCCESS} Returns a new Command$_{\mathrm{File}}$ object}
+\label{sec-4-1-1}
+\subsubsection{\textbf{SUCCESS} Throws an ArgumentError if passed more than one arguments}
+\label{sec-4-1-2}
+\subsubsection{\textbf{SUCCESS} It fills an array with lines of text}
+\label{sec-4-1-3}
+\subsubsection{\#process$_{\mathrm{command}}$$_{\mathrm{file}}$}
+\label{sec-4-1-4}
+\begin{itemize}
+
+\item \textbf{SUCCESS} Processes the lines of text into a command structure\\
+\label{sec-4-1-4-1}%
+by gathering the commands and creating a command structure
+
+\item \#gather$_{\mathrm{command}}$
+\label{sec-4-1-4-2}%
+\begin{itemize}
+
+\item \textbf{SUCCESS} Gather the lines and splits them into a command array\\
+\label{sec-4-1-4-2-1}%
+checking for integers and converting them
+\end{itemize} % ends low level
+
+\item \#create$_{\mathrm{command}}$$_{\mathrm{structre}}$
+\label{sec-4-1-4-3}%
+\begin{itemize}
+
+\item \textbf{SUCCESS} Takes the the first element, which is the size of the field,\\
+\label{sec-4-1-4-3-1}%
+and then takes every odd index
+            putiing every two commands into a command object
+            and pushing them into the command$_{\mathrm{structure}}$ array
+\end{itemize} % ends low level
+\end{itemize} % ends low level
+\subsection{\#valid$_{\mathrm{command}}$$_{\mathrm{structure}}$?}
+\label{sec-4-2}
+\subsubsection{\textbf{SUCCESS} Return true if commands within the}
+\label{sec-4-2-1}
+
+        command$_{\mathrm{structure}}$ array are valid
+        by checking the xy coordinates, text
+        within the file and the command objects
+\subsubsection{\#valid$_{\mathrm{xy}}$?}
+\label{sec-4-2-2}
+\begin{itemize}
+
+\item \textbf{SUCCESS} Return true if xy coordinates given are valid\\
+\label{sec-4-2-2-1}%
+\end{itemize} % ends low level
+\subsubsection{\#valid$_{\mathrm{text}}$?}
+\label{sec-4-2-3}
+\begin{itemize}
+
+\item \textbf{SUCCESS} Return true if the text in the file is correct\\
+\label{sec-4-2-3-1}%
+\end{itemize} % ends low level
+\subsubsection{\#valid$_{\mathrm{commands}}$?}
+\label{sec-4-2-4}
+\begin{itemize}
+
+\item \textbf{SUCCESS} Return true if the command objects within\\
+\label{sec-4-2-4-1}%
+the command$_{\mathrm{structure}}$ array are valid
+          by checking the position and movent
+
+\item \#valid$_{\mathrm{position}}$?
+\label{sec-4-2-4-2}%
+\begin{itemize}
+
+\item \textbf{SUCCESS} Return true if the positin in the command object is valid\\
+\label{sec-4-2-4-2-1}%
+\end{itemize} % ends low level
+
+\item \#valid$_{\mathrm{movement}}$?
+\label{sec-4-2-4-3}%
+\begin{itemize}
+
+\item \textbf{SUCCESS} Return true if the movement in the command object is valid\\
+\label{sec-4-2-4-3-1}%
+\end{itemize} % ends low level
+\end{itemize} % ends low level
+\section{Command}
+\label{sec-5}
+\subsection{\#new}
+\label{sec-5-1}
+\subsubsection{\textbf{SUCCESS} Returns a new Command object}
+\label{sec-5-1-1}
+\subsubsection{\textbf{SUCCESS} Throws an ArgumentError if passed less than two arguments}
+\label{sec-5-1-2}
+\subsection{\#position}
+\label{sec-5-2}
+\subsubsection{\textbf{SUCCESS} Returns an array of the position}
+\label{sec-5-2-1}
+\subsection{\#movement}
+\label{sec-5-3}
+\subsubsection{\textbf{SUCCESS} Returns an array of the movement}
+\label{sec-5-3-1}
+\section{My$_{\mathrm{Matrix}}$}
+\label{sec-6}
+\subsection{\#new}
+\label{sec-6-1}
+\subsubsection{\textbf{SUCCESS} Returns a new My$_{\mathrm{Matrix}}$ object}
+\label{sec-6-1-1}
+\subsubsection{\textbf{SUCCESS} Throws an ArgumentError if passed less than two arguments}
+\label{sec-6-1-2}
+\subsubsection{\textbf{SUCCESS} Creates a two dimmensional array of nil}
+\label{sec-6-1-3}
+\subsection{\#[]}
+\label{sec-6-2}
+\subsubsection{\textbf{SUCCESS} Return the xy given within the two dimensional array}
+\label{sec-6-2-1}
+\subsection{\#[]=}
+\label{sec-6-3}
+\subsubsection{\textbf{SUCCESS} Place the value at the xy given within the two dimensional array}
+\label{sec-6-3-1}
+\subsection{\#my$_{\mathrm{matrix}}$}
+\label{sec-6-4}
+\subsubsection{\textbf{SUCCESS} Returns the two dimensinal matrix}
+\label{sec-6-4-1}
+\section{Navigation}
+\label{sec-7}
+\subsection{\#Navigation.VALID$_{\mathrm{COMMANDS}}$}
+\label{sec-7-1}
+\subsubsection{\textbf{SUCCESS} Returns array of VALID$_{\mathrm{COMMANDS}}$}
+\label{sec-7-1-1}
+\subsection{\#Navigation.COMPASS}
+\label{sec-7-2}
+\subsubsection{\textbf{SUCCESS} Returns array COMPASS}
+\label{sec-7-2-1}
+\subsection{\#Navigation.DIRECTION}
+\label{sec-7-3}
+\subsubsection{\textbf{SUCCESS} Returns array DIRECTION}
+\label{sec-7-3-1}
+\subsection{\#Navigation.execute$_{\mathrm{move}}$}
+\label{sec-7-4}
+\subsubsection{\textbf{SUCCESS} Returns new coordinate and heading based upon given instruction}
+\label{sec-7-4-1}
+\subsubsection{\#Navigation.move}
+\label{sec-7-4-2}
+\begin{itemize}
+
+\item \textbf{SUCCESS} Moves coordinate based on heading\\
+\label{sec-7-4-2-1}%
+\end{itemize} % ends low level
+\subsubsection{\#Navigation.change$_{\mathrm{heading}}$}
+\label{sec-7-4-3}
+\begin{itemize}
+
+\item \textbf{SUCCESS} Turns the coordinate left or right\\
+\label{sec-7-4-3-1}%
+based on current heading and instruction
+
+\item \#Navigation.calibrate$_{\mathrm{compass}}$
+\label{sec-7-4-3-2}%
+\begin{itemize}
+
+\item \textbf{SUCCESS} Move the compass heading so it matches\\
+\label{sec-7-4-3-2-1}%
+the heading of the current coordinate
+\end{itemize} % ends low level
+\end{itemize} % ends low level
+\section{Plateau}
+\label{sec-8}
+\subsection{\#new}
+\label{sec-8-1}
+\subsubsection{\textbf{SUCCESS} Returns a new Plateau object}
+\label{sec-8-1-1}
+
+        and adds one to the x,y
+\subsubsection{\textbf{SUCCESS} Throws an ArgumentError if passed the wrong number of arguments}
+\label{sec-8-1-2}
+\section{Rover$_{\mathrm{Controller}}$}
+\label{sec-9}
+\subsection{\#new}
+\label{sec-9-1}
+\subsubsection{\textbf{SUCCESS} Returns a new instance of a Rover$_{\mathrm{Controller}}$ object}
+\label{sec-9-1-1}
+\subsubsection{\textbf{SUCCESS} It takes the first element of the command$_{\mathrm{structure}}$ array}
+\label{sec-9-1-2}
+
+        and creates a new two dimensional array
+\subsubsection{\#create$_{\mathrm{rover}}$}
+\label{sec-9-1-3}
+\begin{itemize}
+
+\item \textbf{SUCCESS} Create the rovers based on the number of command objects given\\
+\label{sec-9-1-3-1}%
+\end{itemize} % ends low level
+\subsubsection{\#initial$_{\mathrm{placement}}$}
+\label{sec-9-1-4}
+\begin{itemize}
+
+\item \textbf{SUCCESS} Place the rovers based on the coordinates\\
+\label{sec-9-1-4-1}%
+provided by the command object
+
+\item \#pass$_{\mathrm{initial}}$$_{\mathrm{placement}}$$_{\mathrm{check}}$
+\label{sec-9-1-4-2}%
+\begin{itemize}
+
+\item \textbf{SUCCESS} Return true if not placing one rover atop another\\
+\label{sec-9-1-4-2-1}%
+\item \textbf{SUCCESS} Throw error if there is a collision in placement\\
+\label{sec-9-1-4-2-2}%
+\item \#pass$_{\mathrm{collision}}$$_{\mathrm{check}}$
+\label{sec-9-1-4-2-3}%
+\begin{itemize}
+
+\item \textbf{SUCCESS} Return true if there is no collision\\
+\label{sec-9-1-4-2-3-1}%
+\end{itemize} % ends low level
+\end{itemize} % ends low level
+\end{itemize} % ends low level
+\subsection{\#explore}
+\label{sec-9-2}
+\subsubsection{\textbf{SUCCESS} Each rover moves its full path one at a time}
+\label{sec-9-2-1}
+\subsubsection{\#pass$_{\mathrm{path}}$$_{\mathrm{check}}$?}
+\label{sec-9-2-2}
+\begin{itemize}
+
+\item \textbf{SUCCESS} Check to see if the path is valid\\
+\label{sec-9-2-2-1}%
+\item \textbf{SUCCESS} Raise an error if path is not within the boundary or\\
+\label{sec-9-2-2-2}%
+if there is a collision along the path
+
+\item \#pass$_{\mathrm{boundary}}$$_{\mathrm{check}}$?
+\label{sec-9-2-2-3}%
+\begin{itemize}
+
+\item \textbf{SUCCESS} Return true if the coordinate is within the prescribed boundary\\
+\label{sec-9-2-2-3-1}%
+\end{itemize} % ends low level
+\end{itemize} % ends low level
+\subsubsection{\#move}
+\label{sec-9-2-3}
+\begin{itemize}
+
+\item \textbf{SUCCESS} Move a rover based on the command list given from the file\\
+\label{sec-9-2-3-1}%
+by removing it from the map and placing it in its new spot
+
+\item \#remove$_{\mathrm{rover}}$
+\label{sec-9-2-3-2}%
+\begin{itemize}
+
+\item \textbf{SUCCESS} Remove the rover from the map coordinate it inhabits\\
+\label{sec-9-2-3-2-1}%
+\end{itemize} % ends low level
+
+\item \#place$_{\mathrm{rover}}$
+\label{sec-9-2-3-3}%
+\begin{itemize}
+
+\item \textbf{SUCCESS} Place the rover in its new coordinates\\
+\label{sec-9-2-3-3-1}%
+\end{itemize} % ends low level
+\end{itemize} % ends low level
+\section{Rover}
+\label{sec-10}
+\subsection{\#new}
+\label{sec-10-1}
+\subsubsection{\textbf{SUCCESS} Return a new Rover object}
+\label{sec-10-1-1}
+\subsubsection{\textbf{SUCCESS} Throws an ArgumentError if wrong number of arguments}
+\label{sec-10-1-2}
+\subsection{\#move}
+\label{sec-10-2}
+\subsubsection{\textbf{SUCCESS} Logs the place the rover was in and}
+\label{sec-10-2-1}
+
+        Return new coordinates based on instruction
+\subsection{\#home$_{\mathrm{coordinate}}$}
+\label{sec-10-3}
+\subsubsection{\textbf{SUCCESS} Returns the coordinates of where the rover started}
+\label{sec-10-3-1}
+\subsection{\#tag}
+\label{sec-10-4}
+\subsubsection{\textbf{SUCCESS} Return the tag number of the rover}
+\label{sec-10-4-1}
+\subsection{\#command}
+\label{sec-10-5}
+\subsubsection{\textbf{SUCCESS} Return the list of instructions for the rover}
+\label{sec-10-5-1}
+\subsection{\#name}
+\label{sec-10-6}
+\subsubsection{\textbf{SUCCESS} Returns the name of the rover}
+\label{sec-10-6-1}
+\subsection{\#coordinate}
+\label{sec-10-7}
+\subsubsection{\textbf{SUCCESS} Returns the coordinates of rover}
+\label{sec-10-7-1}
+\subsection{\#coordinate=}
+\label{sec-10-8}
+\subsubsection{\textbf{SUCCESS} Sets the coordinate of the rover}
+\label{sec-10-8-1}
+\section{Summary}
+\label{sec-11}
+
+Finished in \textbf{0.015143 seconds}
+62 examples, 0 failures
+
+\end{document}

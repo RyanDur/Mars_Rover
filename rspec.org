@@ -1,0 +1,155 @@
+* String
+** #is_i
+*** SUCCESS Check to see if string is an Integer
+** #is_s?
+*** SUCCESS Check to see if string is string
+* Fixnum
+** #is_i?
+*** SUCCESS Check to see if integer is integer
+* Array
+** #s_to_i
+*** SUCCESS Change the contents of the array with integers and/or strings
+        and converts the integers to integers
+** #add_value
+*** SUCCESS "Add value at index 'num' by 'some other num'
+** #subtract_value
+*** SUCCESS "Subtract value at index 'num' by 'some other num'
+** #shift_right
+*** SUCCESS Move elements of the array to the right
+        by removing the last element and
+        putting it at the beginning
+** #shift_left
+*** SUCCESS Move elements of the array to the left
+        by removing the first element and
+        putting it at the end
+* Command_File
+** #new
+*** SUCCESS Returns a new Command_File object
+*** SUCCESS Throws an ArgumentError if passed more than one arguments
+*** SUCCESS It fills an array with lines of text
+*** #process_command_file
+**** SUCCESS Processes the lines of text into a command structure
+         by gathering the commands and creating a command structure
+**** #gather_command
+***** SUCCESS Gather the lines and splits them into a command array
+            checking for integers and converting them
+**** #create_command_structre
+***** SUCCESS Takes the the first element, which is the size of the field,
+            and then takes every odd index
+            putiing every two commands into a command object
+            and pushing them into the command_structure array
+** #valid_command_structure?
+*** SUCCESS Return true if commands within the
+        command_structure array are valid
+        by checking the xy coordinates, text
+        within the file and the command objects
+*** #valid_xy?
+**** SUCCESS Return true if xy coordinates given are valid
+*** #valid_text?
+**** SUCCESS Return true if the text in the file is correct
+*** #valid_commands?
+**** SUCCESS Return true if the command objects within
+          the command_structure array are valid
+          by checking the position and movent
+**** #valid_position?
+***** SUCCESS Return true if the positin in the command object is valid
+**** #valid_movement?
+***** SUCCESS Return true if the movement in the command object is valid
+* Command
+** #new
+*** SUCCESS Returns a new Command object
+*** SUCCESS Throws an ArgumentError if passed less than two arguments
+** #position
+*** SUCCESS Returns an array of the position
+** #movement
+*** SUCCESS Returns an array of the movement
+* My_Matrix
+** #new
+*** SUCCESS Returns a new My_Matrix object
+*** SUCCESS Throws an ArgumentError if passed less than two arguments
+*** SUCCESS Creates a two dimmensional array of nil
+** #[]
+*** SUCCESS Return the xy given within the two dimensional array
+** #[]=
+*** SUCCESS Place the value at the xy given within the two dimensional array
+** #my_matrix
+*** SUCCESS Returns the two dimensinal matrix
+* Navigation
+** #Navigation.VALID_COMMANDS
+*** SUCCESS Returns array of VALID_COMMANDS
+** #Navigation.COMPASS
+*** SUCCESS Returns array COMPASS
+** #Navigation.DIRECTION
+*** SUCCESS Returns array DIRECTION
+** #Navigation.execute_move
+*** SUCCESS Returns new coordinate and heading based upon given instruction
+*** #Navigation.move
+**** SUCCESS Moves coordinate based on heading
+*** #Navigation.change_heading
+**** SUCCESS Turns the coordinate left or right
+            based on current heading and instruction
+**** #Navigation.calibrate_compass
+***** SUCCESS Move the compass heading so it matches
+              the heading of the current coordinate
+* Plateau
+** #new
+*** SUCCESS Returns a new Plateau object
+        and adds one to the x,y
+*** SUCCESS Throws an ArgumentError if passed the wrong number of arguments
+* Rover_Controller
+** #new
+*** SUCCESS Returns a new instance of a Rover_Controller object
+*** SUCCESS It takes the first element of the command_structure array
+        and creates a new two dimensional array
+*** #create_rover
+**** SUCCESS Create the rovers based on the number of command objects given
+*** #initial_placement
+**** SUCCESS Place the rovers based on the coordinates
+          provided by the command object
+**** #pass_initial_placement_check
+***** SUCCESS Return true if not placing one rover atop another
+***** SUCCESS Throw error if there is a collision in placement
+***** #pass_collision_check
+****** SUCCESS Return true if there is no collision
+** #explore
+*** SUCCESS Each rover moves its full path one at a time
+*** #pass_path_check?
+**** SUCCESS Check to see if the path is valid
+**** SUCCESS Raise an error if path is not within the boundary or
+          if there is a collision along the path
+**** #pass_boundary_check?
+***** SUCCESS Return true if the coordinate is within the prescribed boundary
+*** #move
+**** SUCCESS Move a rover based on the command list given from the file
+          by removing it from the map and placing it in its new spot
+**** #remove_rover
+***** SUCCESS Remove the rover from the map coordinate it inhabits
+**** #place_rover
+***** SUCCESS Place the rover in its new coordinates
+* Rover
+** #new
+*** SUCCESS Return a new Rover object
+*** SUCCESS Throws an ArgumentError if wrong number of arguments
+** #move
+*** SUCCESS Logs the place the rover was in and
+        Return new coordinates based on instruction
+** #home_coordinate
+*** SUCCESS Returns the coordinates of where the rover started
+** #tag
+*** SUCCESS Return the tag number of the rover
+** #command
+*** SUCCESS Return the list of instructions for the rover
+** #name
+*** SUCCESS Returns the name of the rover
+** #coordinate
+*** SUCCESS Returns the coordinates of rover
+** #coordinate=
+*** SUCCESS Sets the coordinate of the rover
+* Summary
+Finished in *0.015767 seconds*
+62 examples, 0 failures
+  :PROPERTIES:
+    :VISIBILITY: children
+  :END:
+#+DRAWERS: DETAILS PROPERTIES
+#+TODO: FAILED PENDING_FIXED PENDING | SUCCESS
